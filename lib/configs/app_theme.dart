@@ -6,101 +6,120 @@ import 'constants.dart';
 
 class AppTheme {
   static TextTheme lightTextTheme = TextTheme(
-    bodyText1: GoogleFonts.openSans(
-      fontSize: 14.0.sp,
-      fontWeight: FontWeight.w600,
+    bodyLarge: GoogleFonts.roboto(
+      fontSize: 16.sp,
+      fontWeight: FontWeight.w400,
       color: Colors.black,
     ),
-    bodyText2: GoogleFonts.openSans(
-      fontSize: 16.0.sp,
-      fontWeight: FontWeight.w600,
+    bodyMedium: GoogleFonts.roboto(
+      fontSize: 14.sp,
+      fontWeight: FontWeight.w400,
       color: Colors.black,
     ),
-    headline1: GoogleFonts.openSans(
-      fontSize: 32.0.sp,
-      fontWeight: FontWeight.w900,
+    bodySmall: GoogleFonts.roboto(
+      fontSize: 12.sp,
+      fontWeight: FontWeight.w400,
       color: Colors.black,
     ),
-    headline2: GoogleFonts.openSans(
-      fontSize: 28.0.sp,
+    displayLarge: GoogleFonts.roboto(
+      fontSize: 32.sp,
+      fontWeight: FontWeight.bold,
+      color: Colors.black,
+    ),
+    displayMedium: GoogleFonts.roboto(
+      fontSize: 28.sp,
       fontWeight: FontWeight.w700,
       color: Colors.black,
     ),
-    headline3: GoogleFonts.openSans(
-      fontSize: 26.0.sp,
+    displaySmall: GoogleFonts.roboto(
+      fontSize: 26.sp,
       fontWeight: FontWeight.w700,
       color: Colors.black,
     ),
-    headline4: GoogleFonts.openSans(
-      fontSize: 24.0.sp,
-      fontWeight: FontWeight.w700,
-      color: Colors.black,
-    ),
-    headline5: GoogleFonts.openSans(
-      fontSize: 22.0.sp,
+    headlineMedium: GoogleFonts.roboto(
+      fontSize: 18.sp,
       fontWeight: FontWeight.w600,
       color: Colors.black,
     ),
-    headline6: GoogleFonts.openSans(
-      fontSize: 20.0.sp,
+    headlineSmall: GoogleFonts.roboto(
+      fontSize: 14.sp,
+      fontWeight: FontWeight.w600,
+      color: Colors.black,
+    ),
+    titleLarge: GoogleFonts.roboto(
+      fontSize: 22.sp,
       fontWeight: FontWeight.w600,
       color: Colors.black,
     ),
   );
 
   static TextTheme darkTextTheme = TextTheme(
-    bodyText1: GoogleFonts.openSans(
-      fontSize: 14.0.sp,
-      fontWeight: FontWeight.w600,
-      color: Colors.white,
+    bodyLarge: GoogleFonts.roboto(
+      fontSize: 16.sp,
+      fontWeight: FontWeight.w400,
+      color: Colors.black,
     ),
-    bodyText2: GoogleFonts.openSans(
-      fontSize: 16.0.sp,
-      fontWeight: FontWeight.w600,
-      color: Colors.white,
+    bodyMedium: GoogleFonts.roboto(
+      fontSize: 14.sp,
+      fontWeight: FontWeight.w400,
+      color: Colors.black,
     ),
-    headline1: GoogleFonts.openSans(
-      fontSize: 32.0.sp,
+    bodySmall: GoogleFonts.roboto(
+      fontSize: 12.sp,
+      fontWeight: FontWeight.w400,
+      color: Colors.black,
+    ),
+    displayLarge: GoogleFonts.roboto(
+      fontSize: 32.sp,
       fontWeight: FontWeight.bold,
-      color: Colors.white,
+      color: Colors.black,
     ),
-    headline2: GoogleFonts.openSans(
-      fontSize: 28.0.sp,
+    displayMedium: GoogleFonts.roboto(
+      fontSize: 28.sp,
       fontWeight: FontWeight.w700,
-      color: Colors.white,
+      color: Colors.black,
     ),
-    headline3: GoogleFonts.openSans(
-      fontSize: 26.0.sp,
+    displaySmall: GoogleFonts.roboto(
+      fontSize: 26.sp,
       fontWeight: FontWeight.w700,
-      color: Colors.white,
+      color: Colors.black,
     ),
-    headline4: GoogleFonts.openSans(
-      fontSize: 24.0.sp,
-      fontWeight: FontWeight.w700,
-      color: Colors.white,
-    ),
-    headline5: GoogleFonts.openSans(
-      fontSize: 22.0.sp,
+    headlineMedium: GoogleFonts.roboto(
+      fontSize: 18.sp,
       fontWeight: FontWeight.w600,
-      color: Colors.white,
+      color: Colors.black,
     ),
-    headline6: GoogleFonts.openSans(
-      fontSize: 20.0.sp,
+    headlineSmall: GoogleFonts.roboto(
+      fontSize: 14.sp,
       fontWeight: FontWeight.w600,
-      color: Colors.white,
+      color: Colors.black,
+    ),
+    titleLarge: GoogleFonts.roboto(
+      fontSize: 22.sp,
+      fontWeight: FontWeight.w600,
+      color: Colors.black,
     ),
   );
 
   static ThemeData light() {
     return ThemeData(
+      colorScheme: const ColorScheme.light(primary: primaryColor),
+      useMaterial3: true,
       brightness: Brightness.light,
       primaryColor: primaryColor,
-    //  primarySwatch: primaryColor,
-      fontFamily: 'OpenSans',
+      // primarySwatch: primaryMaterialColor,
+      fontFamily: 'Roboto',
       checkboxTheme: CheckboxThemeData(
         fillColor: MaterialStateColor.resolveWith((states) {
-          return Colors.amber;
+          return Colors.teal;
         }),
+      ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all<Color>(primaryColor),
+      )),
+      dividerTheme: DividerThemeData(
+        color: Colors.grey.withOpacity(0.8),
       ),
       appBarTheme: const AppBarTheme(
         foregroundColor: Colors.black,
@@ -110,12 +129,29 @@ class AppTheme {
         selectedItemColor: primaryColor,
       ),
       textTheme: lightTextTheme,
+      inputDecorationTheme: InputDecorationTheme(
+        hintStyle: lightTextTheme.bodyMedium?.copyWith(
+          color: const Color(0xFF6E7A82),
+          fontWeight: FontWeight.w400,
+        ),
+        border: const OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(12.0)),
+            borderSide: BorderSide.none),
+        filled: true,
+        fillColor: Colors.white,
+      ),
     );
   }
 
   static ThemeData dark() {
     return ThemeData(
+      dividerTheme: const DividerThemeData(
+        color: Colors.grey,
+      ),
+      colorScheme: const ColorScheme.dark(primary: primaryColor),
+      useMaterial3: true,
       brightness: Brightness.dark,
+      dividerColor: Colors.grey,
       appBarTheme: AppBarTheme(
         foregroundColor: Colors.white,
         backgroundColor: Colors.grey[900],
@@ -126,10 +162,4 @@ class AppTheme {
       textTheme: darkTextTheme,
     );
   }
-}
-
-class AppColors {
-  static Color uiInitLoginBgColor = const Color(0xffEDEDED);
-  static Color uiBlackColor = const Color(0xff0C0D0E);
-  static Color uiGreyColor = const Color(0xffEBEBEB);
 }
