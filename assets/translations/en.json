@@ -1,3 +1,9 @@
 {
-  "hi": "hi"
+  "hi": "hi",
+  "explore": "Explore",
+  "settings": "Settings",
+  "login": "Login",
+  "yes": "Yes",
+  "no": "No",
+  "are_you_sure_want_to_close_app": "Are you sure want to close app?"
 }

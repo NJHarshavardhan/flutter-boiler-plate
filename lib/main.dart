@@ -32,7 +32,8 @@ void main() async {
       fallbackLocale: const Locale('en'),
       startLocale: Locale(locale),
       useOnlyLangCode: true,
-      child:const MyApp()
+      child: const ProviderScope(overrides: [
+      ], child: MyApp()),
     ),
   );
 }
@@ -67,7 +68,7 @@ class _MyAppState extends ConsumerState<MyApp> {
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,
           locale: context.locale,
-          theme:  AppTheme.dark(),
+          theme:  AppTheme.light(),
           initialRoute: AppRoutes.initialRoute,
           onGenerateRoute: AppRoutes.generateRoute,
         );
